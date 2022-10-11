@@ -25,8 +25,7 @@ namespace XIV.SaveSystems
             }
         }
 
-        public static void Load<TSaveable>(ref TSaveable saveable, string path) 
-            where TSaveable : ISaveable
+        public static void Load<TSaveable>(ref TSaveable saveable, string path) where TSaveable : ISaveable
         {
             saveable = (TSaveable)Activator.CreateInstance(typeof(TSaveable));
             if (!File.Exists(path))
