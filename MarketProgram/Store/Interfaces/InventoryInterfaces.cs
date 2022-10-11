@@ -1,4 +1,4 @@
-﻿using MarketProgram.SaveSystems;
+﻿using MarketProgram.Store;
 
 namespace MarketProgram.Store.Interfaces
 {
