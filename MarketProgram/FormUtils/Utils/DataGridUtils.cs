@@ -26,6 +26,7 @@ namespace XIV.Utils
             return column;
         }
 
+        // TODO : Accept DataGridViewCell
         public static DataGridViewRow CreateRow(int cellCount, bool isReadOnly)
         {
             DataGridViewRow row = new DataGridViewRow();
