@@ -35,7 +35,7 @@ namespace XIV.Utils
                 if (result == DialogResult.Yes)
                 {
                     yesAction?.Invoke();
-                    return;
+                    return result;
                 }
                 noAction?.Invoke();
 
@@ -48,7 +48,7 @@ namespace XIV.Utils
                 if (result == DialogResult.Yes)
                 {
                     yesAction?.Invoke();
-                    return;
+                    return result;
                 }
                 noAction?.Invoke();
 
@@ -61,7 +61,7 @@ namespace XIV.Utils
                 if (result == DialogResult.Yes)
                 {
                     yesAction?.Invoke();
-                    return;
+                    return result;
                 }
                 noAction?.Invoke();
 
@@ -78,7 +78,7 @@ namespace XIV.Utils
                 {
                     yesAction?.Invoke();
                 }
-                else if (result = DialogResult.No)
+                else if (result == DialogResult.No)
                 {
                     noAction?.Invoke();
                 }
@@ -97,7 +97,7 @@ namespace XIV.Utils
                 {
                     yesAction?.Invoke();
                 }
-                else if (result = DialogResult.No)
+                else if (result == DialogResult.No)
                 {
                     noAction?.Invoke();
                 }
@@ -116,7 +116,7 @@ namespace XIV.Utils
                 {
                     yesAction?.Invoke();
                 }
-                else if (result = DialogResult.No)
+                else if (result == DialogResult.No)
                 {
                     noAction?.Invoke();
                 }
