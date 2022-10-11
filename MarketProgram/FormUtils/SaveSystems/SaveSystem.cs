@@ -1,7 +1,11 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
-namespace MarketProgram.SaveSystems
+namespace XIV.SaveSystems
 {
+
     public static class SaveSystem
     {
         public static void Save(ISaveable saveable, string path)
@@ -43,5 +47,4 @@ namespace MarketProgram.SaveSystems
             }
         }
     }
-    
 }
