@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Reflection;
 using System.Windows.Forms;
+using Timer = System.Windows.Forms.Timer;
 
 namespace XIV.Utils
 {
