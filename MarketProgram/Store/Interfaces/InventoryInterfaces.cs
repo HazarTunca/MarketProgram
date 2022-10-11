@@ -1,4 +1,6 @@
-﻿namespace MarketProgram.Store.Interfaces
+﻿using MarketProgram.SaveSystems;
+
+namespace MarketProgram.Store.Interfaces
 {
     public interface IInventoryChangedListener
     {
