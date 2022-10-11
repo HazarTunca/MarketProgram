@@ -14,12 +14,15 @@ namespace XIV.Utils
         /// <param name="DataPropertyName"></param>
         /// <param name="Header"></param>
         /// <returns>A new <see cref="DataGridViewColumn"/></returns>
-        public static DataGridViewColumn CreateColumn(string DataPropertyName, string Header)
+        public static DataGridViewColumn CreateColumn(string DataPropertyName, string Header,
+            DataGridViewAutoSizeColumnMode autoSizeMode = DataGridViewAutoSizeColumnMode.Fill)
         {
             DataGridViewColumn column = new DataGridViewTextBoxColumn();
             column.Name = DataPropertyName;
             column.DataPropertyName = DataPropertyName;
             column.HeaderText = Header;
+
+            column.AutoSizeMode = autoSizeMode;
             return column;
         }
 
