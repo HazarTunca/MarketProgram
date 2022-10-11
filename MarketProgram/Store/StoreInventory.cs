@@ -6,14 +6,14 @@ namespace MarketProgram.Store
 {
     public class StoreInventory : ISaveable
     {
-        Dictionary<uint, ProductData> productDatas = new Dictionary<uint, ProductData>();
+        Dictionary<string, ProductData> productDatas = new Dictionary<string, ProductData>();
 
         public void AddProduct(ProductData productData)
         {
             productDatas.Add(productData.barcodeID, productData);
         }
 
-        public void AddProduct(uint barcodeID, string productName, double price)
+        public void AddProduct(string barcodeID, string productName, double price)
         {
             productDatas.Add(barcodeID,
                 new ProductData
@@ -25,7 +25,7 @@ namespace MarketProgram.Store
                 });
         }
 
-        public void AddProduct(uint barcodeID, string productName, double price, uint count)
+        public void AddProduct(string barcodeID, string productName, double price, uint count)
         {
             productDatas.Add(barcodeID,
                 new ProductData
@@ -44,7 +44,7 @@ namespace MarketProgram.Store
 
         public void Load(object loadedData)
         {
-            productDatas = (Dictionary<uint, ProductData>)loadedData;
+            productDatas = (Dictionary<string, ProductData>)loadedData;
         }
     }
 }

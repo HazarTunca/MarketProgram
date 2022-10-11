@@ -1,9 +1,9 @@
-﻿namespace MarketProgram.SaveSystems
+﻿namespace MarketProgram.Store
 {
     [System.Serializable]
     public class ProductData
     {
-        public uint barcodeID;
+        public string barcodeID;
         public string productName;
         public double price;
         public uint count;
