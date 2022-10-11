@@ -12,8 +12,6 @@ namespace MarketProgram
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainMenuForm());
-
-            Dictionary<int, int> aa = new Dictionary<int, int>();
         }
     }
 }
