@@ -22,6 +22,17 @@ namespace XIV.Utils
             column.HeaderText = Header;
             return column;
         }
+
+        public static DataGridViewRow CreateRow(int cellCount, bool isReadOnly)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            for (int i = 0; i < cellCount; i++)
+			{
+                row.Cells.Add(new DataGridViewTextBoxCell());
+                row.Cells[i].ReadOnly = isReadOnly;
+			}
+            return row;
+        }
     }
 
 }
