@@ -21,14 +21,23 @@ namespace MarketProgram
 
         private void SellFormButton_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm<SellForm>(null);
+            var form = FormUtils.OpenForm<SellForm>(null);
+            form.FormClosed += OnChildFormClosed;
             this.Hide();
         }
 
         private void ProductsFormButton_Click(object sender, EventArgs e)
         {
-            FormUtils.OpenForm<ProductsForm>(null);
+            var form = FormUtils.OpenForm<ProductsForm>(null);
+            form.FormClosed += OnChildFormClosed;
             this.Hide();
+        }
+
+        private void OnChildFormClosed(object? sender, FormClosedEventArgs e)
+        {
+            var form = sender as Form;
+            form.FormClosed -= OnChildFormClosed;
+            this.Show();
         }
     }
 }
