@@ -25,12 +25,12 @@ namespace XIV.SaveSystems
             }
         }
 
-        public static void Load<TSaveable>(ref TSaveable saveable, string path) where TSaveable : ISaveable
+        public static TSaveable Load<TSaveable>(string path) where TSaveable : ISaveable
         {
-            saveable = (TSaveable)Activator.CreateInstance(typeof(TSaveable));
+            var saveable = (TSaveable)Activator.CreateInstance(typeof(TSaveable));
             if (!File.Exists(path))
             {
-                return;
+                return saveable;
             }
             BinaryFormatter bf = new BinaryFormatter();
             using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -44,6 +44,7 @@ namespace XIV.SaveSystems
                     MessageBox.Show(e.Message);
                 }
             }
+            return saveable;
         }
     }
 }

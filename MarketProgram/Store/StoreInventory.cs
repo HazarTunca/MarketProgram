@@ -15,7 +15,7 @@ namespace MarketProgram.Store
             {
                 if (instance == null)
                 {
-                    SaveSystem.Load(ref instance, InventoryManager.productSavePath);
+                    instance = SaveSystem.Load<StoreInventory>(InventoryManager.productSavePath);
                 }
                 return instance;
             }
