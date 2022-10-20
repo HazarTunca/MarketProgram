@@ -37,6 +37,19 @@ namespace XIV.Utils
 			}
             return row;
         }
+
+        public static DataGridViewRow CreateRow(object[] values, bool isReadOnly)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            for (int i = 0; i < values.Length; i++)
+			{
+                var cell = new DataGridViewTextBoxCell();
+                cell.Value = values[i];
+                row.Cells.Add(cell);
+                row.Cells[i].ReadOnly = isReadOnly;
+			}
+            return row;
+        }
     }
 
 }
