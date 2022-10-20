@@ -9,7 +9,7 @@ namespace XIV.Utils
 
         public static DialogResult Show(string title, string message, MessageBoxButtons messageBoxButtons, MessageBoxIcon icon, MessageBoxDefaultButton defaultButton)
         {
-            return MessageBox.Show(title, message, messageBoxButtons, icon, defaultButton);
+            return MessageBox.Show(message, title, messageBoxButtons, icon, defaultButton);
         }
 
         public static DialogResult ShowInfo(string title, string message)
