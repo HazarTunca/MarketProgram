@@ -72,6 +72,7 @@
             this.AddProductButton.TabIndex = 3;
             this.AddProductButton.Text = "EKLE";
             this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // ProductGridView
             // 
