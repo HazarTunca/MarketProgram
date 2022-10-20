@@ -15,7 +15,7 @@ namespace MarketProgram.Store
             {
                 if (instance == null)
                 {
-                    instance = SaveSystem.Load<StoreInventory>(InventoryManager.productSavePath);
+                    instance = SaveSystem.Load<StoreInventory>(MarketProgramPaths.ProductSavePath);
                 }
                 return instance;
             }
@@ -50,12 +50,45 @@ namespace MarketProgram.Store
                 });
         }
 
-        public object GetSaveData()
+        public bool UpdateProduct(string barcodeID, ProductData newProductData)
+        {
+            if (productDatas.ContainsKey(barcodeID) == false)
+            {
+                return false;
+            }
+            if(newProductData.barcodeID != barcodeID)
+            {
+                productDatas.Remove(barcodeID);
+                AddProduct(newProductData);
+            }
+            else
+            {
+                productDatas[barcodeID].productName = newProductData.productName;
+                productDatas[barcodeID].price = newProductData.price;
+                productDatas[barcodeID].count = newProductData.count;
+            }
+            return true;
+        }
+
+        public bool Contains(string barcodeID)
+        {
+            return productDatas.ContainsKey(barcodeID);
+        }
+
+        public IEnumerable<ProductData> Products()
+        {
+            foreach (ProductData productData in productDatas.Values)
+            {
+                yield return productData;
+            }
+        }
+
+        object ISaveable.GetSaveData()
         {
             return productDatas;
         }
 
-        public void Load(object loadedData)
+        void ISaveable.Load(object loadedData)
         {
             productDatas = (Dictionary<string, ProductData>)loadedData;
         }
