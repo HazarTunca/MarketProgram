@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using XIV.Utils;
 
 namespace XIV.SaveSystems
 {
@@ -11,17 +12,28 @@ namespace XIV.SaveSystems
         public static void Save(ISaveable saveable, string path)
         {
             BinaryFormatter bf = new BinaryFormatter();
-            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
+            try
             {
-                try
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
                 {
-                    object saveData = saveable.GetSaveData();
-                    bf.Serialize(fs, saveData);
+                    try
+                    {
+                        object saveData = saveable.GetSaveData();
+                        bf.Serialize(fs, saveData);
+                    }
+                    catch (Exception e)
+                    {
+                        MessageUtils.ShowError(e.Source, e.Message);
+                    }
+                    finally
+                    {
+                        fs.Close();
+                    }
                 }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.Message);
-                }
+            }
+            catch (Exception e)
+            {
+                MessageUtils.ShowError(e.Source, e.Message);
             }
         }
 
